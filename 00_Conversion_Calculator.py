@@ -1,10 +1,11 @@
 # Functions go here
 
 def statement_generator(text, decoration):
+
     # Make string with five characters
     ends = decoration * 5
 
-    # add decoration to start and end of statement
+    # Add decoration to start and end of statement
     statement = "{} {} {}".format(ends, text, ends)
 
     print()
@@ -14,13 +15,14 @@ def statement_generator(text, decoration):
     return ""
 
 
-# displays instructions / information
+# Display Instructions
+
 def instructions():
-    statement_generator("Instructions / Information", "=")
+    statement_generator("Instructions / Information", "-")
     print()
-    print("Please choose a unit to convert from and a unit to convert to")
+    print("Please choose a unit to convert to and from!")
     print()
-    print("This program converts measurements of time, mass, and distance")
+    print("This program converts time, distance and weight to other measurements")
     print()
     print("Complete as many calculations as necessary, pressing <enter> at the end of each calculation or any key to "
           "quit")
@@ -28,7 +30,7 @@ def instructions():
     return ""
 
 
-# checks input is a number more than given value
+# Checks input is a number more than given value
 
 def num_check(question):
     valid = False
@@ -56,39 +58,38 @@ def num_check(question):
             print(error)
 
 
-# Checks user choice is 'weight', 'distance' or 'time'
+# Checks user choice is either "time, "distance", or "weight",
 def user_choice():
     valid = False
     while not valid:
 
-        # ask user for choice and change response to lowercase
-        response = input("measurement (weight / distance / time): ").lower()
+        # Ask user for measurement
+        response = input("Measurement (Time, Distance, Weight): ").lower()
 
-        # if they choose "t" or "text" or "txt", return "text"
+        # If "t", "text" or "txt" is chosen, return "text"
         weight_ok = ["weight", "w", "wt"]
         if response in weight_ok:
-            return "weight"
+            return "Weight"
 
-        # if they choose "int" or "integer", return "integer"
-        distance_ok = ["distance", "length", "d", "dist"]
+        # If "int" or "integer" is chosen, return "integer"
+        distance_ok = ["distance", "length", "d"]
         if response in distance_ok:
-            return "distance"
+            return "Distance"
 
-        # if they choose "image" or "p" or "img", return "image"
+        # If "image", "p" or "img" is chosen, return "image"
         time_ok = ["time", "t"]
         if response in time_ok:
-            return "time"
+            return "Time"
         else:
             print("Please choose a valid measurement!")
             print()
 
 
 def ask_num():
-    input("Please enter the integer (more than zero) you want to convert: ")
+    input("Please enter an integer (more than or equal to 0): ")
 
 
-# Dictionaries
-
+# Dictionaries of words
 
 weight_dict = {
     "mg": 1000,
@@ -114,9 +115,9 @@ time_dict = {
 
 
 def weight_conv():
-    # Ask user what to convert from and to
 
-    weight_from = input("Enter unit to convert from (mg, g, kg, t): ")
+    # Ask user what to convert from and to
+    weight_from = input("Enter a unit to convert from (mg, g, kg, t): ")
     print()
     weight_to = input("Enter unit to convert to (mg, g, kg, t): ")
     print()
@@ -138,8 +139,8 @@ def weight_conv():
 
 
 def distance_conv():
-    # Ask user what to convert from and to
 
+    # Ask user what to convert from and to
     distance_from = input("Enter unit to convert from (mm, cm, m, km): ")
     print()
     distance_to = input("Enter unit to convert to (mm, cm, m, km): ")
@@ -188,7 +189,7 @@ def time_conv():
 # Main Routine goes here
 
 # Heading
-statement_generator("Conversion Calculator for Weight, Distance & Time", "*")
+statement_generator("Conversion Calculator for Weight, Distance & Time", "-")
 
 # Display instructions if user has not used the program before
 first_time = input("Press <enter> to see the instructions or any key to continue: ")
@@ -204,6 +205,7 @@ while keep_going == "":
     # Ask the user for the file type
     data_type = user_choice()
     print("You chose", data_type)
+    print()
 
     # For integers, ask for integer
     # (must be an integer more than / equal to 0)
@@ -220,5 +222,5 @@ while keep_going == "":
         time_conv()
 
 print()
-keep_going = input("Press <enter> to continue or any key to quit ")
+keep_going = input("Press <enter> to continue or any key to quit: ")
 print()
