@@ -1,7 +1,6 @@
 # Functions go here
 
 def statement_generator(text, decoration):
-
     # Make string with five characters
     ends = decoration * 5
 
@@ -18,20 +17,19 @@ def statement_generator(text, decoration):
 # Display Instructions
 
 def instructions():
-    statement_generator("Instructions / Information", "-")
-    print()
+    statement_generator("Instructions / Information", "-" * 8)
     print("Please choose a unit to convert to and from!")
     print()
     print("This program converts time, distance and weight to other measurements")
     print()
     print("Complete as many calculations as necessary, pressing <enter> at the end of each calculation or any key to "
           "quit")
+    print("-" * 111)
     print()
     return ""
 
 
 # Checks input is a number more than given value
-
 def num_check(question):
     valid = False
     while not valid:
@@ -56,6 +54,7 @@ def num_check(question):
 
         except ValueError:
             print(error)
+            print()
 
 
 # Checks user choice is either "time, "distance", or "weight",
@@ -64,19 +63,19 @@ def user_choice():
     while not valid:
 
         # Ask user for measurement
-        response = input("Measurement (Time, Distance, Weight): ").lower()
+        response = input("Measurement (Time, Distance or Weight): ").lower()
 
-        # If "t", "text" or "txt" is chosen, return "text"
+        # If "w" is chosen, return "weight"
         weight_ok = ["weight", "w", "wt"]
         if response in weight_ok:
             return "Weight"
 
-        # If "int" or "integer" is chosen, return "integer"
-        distance_ok = ["distance", "length", "d"]
+        # If "d" is chosen, return "distance"
+        distance_ok = ["distance", "d"]
         if response in distance_ok:
             return "Distance"
 
-        # If "image", "p" or "img" is chosen, return "image"
+        # If "t" is chosen, return "time"
         time_ok = ["time", "t"]
         if response in time_ok:
             return "Time"
@@ -89,37 +88,11 @@ def ask_num():
     input("Please enter an integer (more than or equal to 0): ")
 
 
-# Dictionaries of words
-
-weight_dict = {
-    "mg": 1000,
-    "g": 1,
-    "kg": 0.001,
-    "t": 0.000001
-}
-
-distance_dict = {
-    "cm": 100,
-    "m": 1,
-    "km": 0.001,
-    "mm": 1000
-}
-
-time_dict = {
-    "sec": 60,
-    "min": 1,
-    "hour": 0.6,
-    "day": 0.000694444,
-    "ms": 60000
-}
-
-
 def weight_conv():
-
     # Ask user what to convert from and to
-    weight_from = input("Enter a unit to convert from (mg, g, kg, t): ")
+    weight_from = input("Enter a unit to convert from: ")
     print()
-    weight_to = input("Enter unit to convert to (mg, g, kg, t): ")
+    weight_to = input("Enter unit to convert to: ")
     print()
 
     weight_amount = float(input("Please enter the amount you want to convert: "))
@@ -139,7 +112,6 @@ def weight_conv():
 
 
 def distance_conv():
-
     # Ask user what to convert from and to
     distance_from = input("Enter unit to convert from (mm, cm, m, km): ")
     print()
@@ -165,9 +137,9 @@ def distance_conv():
 def time_conv():
     # Ask user what to convert from and to
 
-    time_from = input("Enter unit to convert from (mm, cm, m, km): ")
+    time_from = input("Enter unit to convert from: ")
     print()
-    time_to = input("Enter unit to convert to (mm, cm, m, km): ")
+    time_to = input("Enter unit to convert to: ")
     print()
 
     time_amount = float(input("Please enter the amount you want to convert: "))
@@ -188,8 +160,33 @@ def time_conv():
 
 # Main Routine goes here
 
+# Dictionary
+
+weight_dict = {
+    "mg": 1000,
+    "g": 1,
+    "kg": 0.001,
+    "t": 0.000001
+}
+
+distance_dict = {
+    "cm": 100,
+    "m": 1,
+    "km": 0.001,
+    "mm": 1000
+}
+
+time_dict = {
+    "sec": 60,
+    "min": 1,
+    "hour": 0.6,
+    "day": 0.000694444,
+    "ms": 60000
+}
+
+
 # Heading
-statement_generator("Conversion Calculator for Weight, Distance & Time", "-")
+statement_generator("Conversion Calculator for Weight, Distance & Time", "⋆" * 4)
 
 # Display instructions if user has not used the program before
 first_time = input("Press <enter> to see the instructions or any key to continue: ")
@@ -207,19 +204,31 @@ while keep_going == "":
     print("You chose", data_type)
     print()
 
-    # For integers, ask for integer
-    # (must be an integer more than / equal to 0)
+    # Weight
     if data_type == "weight":
         weight_conv()
 
-    # For images, ask for width and height
-    # (must be integers more than / equal to 1)
+    # Distance
     elif data_type == "distance":
         distance_conv()
 
-    # For text, ask for a string
+    # Time
     else:
         time_conv()
+
+    from_unit = input("what unit do you have? ")
+    amount = num_check(f"How many {from_unit} do you have?")
+    to_unit = input("What do you want to convert to? ")
+
+    # Find the value
+    multiply_by = num_check,
+
+    # Work out the total
+    answer = num_check * multiply_by
+
+    print()
+    print("{} x {} = {}".format(num_check, multiply_by, answer))
+
 
 print()
 keep_going = input("Press <enter> to continue or any key to quit: ")
