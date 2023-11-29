@@ -1,19 +1,19 @@
 def conversion_checker():
     error = "Please chose valid measurement"
 
-    # loop starts here
+    # Loop
     while True:
 
-        response = input("What unit are you convering from? ").lower()
+        response = input("Which unit are you converting from: ").lower()
 
         if response == "mg" or response == "g" or response == "kg" or response == "t":
-            return ("weight")
+            return "weight"
 
         elif response == "sec" or response == "min" or response == "hour":
-            return ("time")
+            return "time"
 
         elif response == "mm" or response == "cm" or response == "m" or response == "km":
-            return ("distance")
+            return "distance"
         else:
             print(error)
 
@@ -21,19 +21,19 @@ def conversion_checker():
 def unit_checker():
     error = "Please chose valid measurement"
 
-    # loop starts here
+
     while True:
 
-        response = input("What unit are you convering to? ").lower()
+        response = input("Which unit are you converting to: ").lower()
 
         if response == "mg" or response == "g" or response == "kg" or response == "t":
-            return ("weight")
+            return "weight"
 
         elif response == "sec" or response == "min" or response == "hour":
-            return ("time")
+            return "time"
 
         elif response == "mm" or response == "cm" or response == "m" or response == "km":
-            return ("distance")
+            return 'distance'
         else:
             print(error)
 

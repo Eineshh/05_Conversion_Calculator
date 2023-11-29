@@ -9,10 +9,9 @@ def user_choice():
     while not valid:
 
         # Ask user for choice and lowercase's it
-        response = input("File Type (Time, Distance, Weight): ").lower()
+        response = input("File Type: ").lower()
 
-        # Checks for valid response and returns text, integer or image
-
+        # Checks for valid response
         if response in distance_ok:
             return "Distance"
 

@@ -13,20 +13,14 @@ def statement_generator(text, decoration):
     return ""
 
 
-# displays instructions / information
 def instructions():
-    statement_generator("Instruction / Information", "=")
+    statement_generator("Instructions / Information", "-" * 8)
+    print("Please choose a unit to convert to and from!")
     print()
-    print("Please choose a data type (image / text / integer)")
-    print()
-    print("This program assumes that images are being represented in 24 bit color (ie: 24 bits per pixel).  For text, "
-          "we assume that ascii encoding is being used (8 bits per character).")
+    print("This program converts time, distance and weight to other measurements")
     print()
     print("Complete as many calculations as necessary, pressing <enter> at the end of each calculation or any key to "
-          "quit.")
+          "quit")
+    print("-" * 111)
     print()
     return ""
-
-
-# Main routine
-instructions()
